@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Poppin | Fashion That Pops</title>
+
+    <style>
+        /* =========================
+           GENERAL STYLES
+        ========================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #fffaf5;
+            color: #222;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* =========================
+           NAVBAR
+        ========================== */
+        nav {
+            width: 100%;
+            padding: 20px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #ffffff;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+        }
+
+        .logo {
+            font-size: 30px;
+            font-weight: 900;
+            letter-spacing: 2px;
+            color: #ff4f81;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #ff4f81;
+        }
+
+        /* =========================
+           SECTION 1 - HERO
+        ========================== */
+        .hero {
+            min-height: 100vh;
+            padding: 120px 7% 60px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 50px;
+            background: linear-gradient(135deg, #fff0f5, #fff8ed);
+        }
+
+        .hero-content {
+            flex: 1;
+        }
+
+        .hero-content .small-title {
+            color: #ff4f81;
+            font-size: 18px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 15px;
+        }
+
+        .hero-content h1 {
+            font-size: clamp(50px, 7vw, 90px);
+            line-height: 1;
+            margin-bottom: 25px;
+        }
+
+        .hero-content h1 span {
+            color: #ff4f81;
+        }
+
+        .hero-content p {
+            max-width: 550px;
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 35px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 35px;
+            background: #ff4f81;
+            color: white;
+            border-radius: 30px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: #222;
+            transform: translateY(-3px);
+        }
+
+        .hero-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+        .hero-image img {
+            width: 100%;
+            max-width: 500px;
+            height: 600px;
+            object-fit: cover;
+            border-radius: 30px;
+            box-shadow: 20px 20px 0 #ffd0dc;
+        }
+
+        /* =========================
+           SECTION 2 - COLLECTION
+        ========================== */
+        .collection {
+            padding: 100px 7%;
+            background: white;
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 45px;
+            margin-bottom: 15px;
+        }
+
+        .section-subtitle {
+            color: #777;
+            margin-bottom: 50px;
+        }
+
+        .products {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .product-card {
+            background: #fffaf5;
+            border-radius: 20px;
+            overflow: hidden;
+            transition: 0.3s;
+            text-align: left;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.12);
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 380px;
+            object-fit: cover;
+        }
+
+        .product-info {
+            padding: 25px;
+        }
+
+        .product-info h3 {
+            font-size: 23px;
+            margin-bottom: 8px;
+        }
+
+        .product-info p {
+            color: #777;
+            margin-bottom: 12px;
+        }
+
+        .price {
+            font-size: 20px;
+            font-weight: bold;
+            color: #ff4f81;
+        }
+
+        /* =========================
+           SECTION 3 - ABOUT
+        ========================== */
+        .about {
+            padding: 100px 7%;
+            display: flex;
+            align-items: center;
+            gap: 70px;
+            background: #fff0f5;
+        }
+
+        .about-image {
+            flex: 1;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            border-radius: 30px;
+        }
+
+        .about-content {
+            flex: 1;
+        }
+
+        .about-content h2 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .about-content h2 span {
+            color: #ff4f81;
+        }
+
+        .about-content p {
+            color: #666;
+            font-size: 17px;
+            margin-bottom: 20px;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .feature {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+        }
+
+        .feature h3 {
+            margin-bottom: 5px;
+        }
+
+        .feature p {
+            font-size: 14px;
+            margin: 0;
+        }
+
+        /* =========================
+           SECTION 4 - CONTACT
+        ========================== */
+        .contact {
+            padding: 100px 7% 50px;
+            background: #222;
+            color: white;
+            text-align: center;
+        }
+
+        .contact h2 {
+            font-size: 45px;
+            margin-bottom: 15px;
+        }
+
+        .contact p {
+            color: #ccc;
+            margin-bottom: 30px;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            flex-wrap: wrap;
+            margin-bottom: 50px;
+        }
+
+        .contact-item {
+            font-size: 16px;
+        }
+
+        .contact-item span {
+            color: #ff4f81;
+            font-weight: bold;
+        }
+
+        footer {
+            border-top: 1px solid #444;
+            padding-top: 25px;
+            color: #aaa;
+        }
+
+        /* =========================
+           RESPONSIVE DESIGN
+        ========================== */
+        @media (max-width: 900px) {
+
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                padding-top: 140px;
+            }
+
+            .hero-content p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .hero-image img {
+                height: 500px;
+            }
+
+            .products {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .about {
+                flex-direction: column;
+            }
+
+            .about-content {
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            nav {
+                padding: 15px 5%;
+            }
+
+            .logo {
+                font-size: 24px;
+            }
+
+            .nav-links {
+                gap: 12px;
+                font-size: 13px;
+            }
+
+            .hero {
+                padding-left: 5%;
+                padding-right: 5%;
+            }
+
+            .hero-content h1 {
+                font-size: 55px;
+            }
+
+            .hero-image img {
+                height: 400px;
+                box-shadow: 10px 10px 0 #ffd0dc;
+            }
+
+            .collection,
+            .about,
+            .contact {
+                padding-left: 5%;
+                padding-right: 5%;
+            }
+
+            .section-title,
+            .contact h2,
+            .about-content h2 {
+                font-size: 36px;
+            }
+
+            .products {
+                grid-template-columns: 1fr;
+            }
+
+            .features {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- =========================
+         NAVIGATION
+    ========================== -->
+    <nav>
+        <div class="logo">POPPIN</div>
+
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#collection">Collection</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+
+    <!-- =========================
+         SECTION 1 - HOME
+    ========================== -->
+    <section class="hero" id="home">
+
+        <div class="hero-content">
+
+            <div class="small-title">
+                New Fashion. New You.
+            </div>
+
+            <h1>
+                Wear It.<br>
+                <span>Love It.</span>
+            </h1>
+
+            <p>
+                Welcome to Poppin — where modern fashion meets confidence.
+                Discover stylish clothing designed for people who love
+                to stand out and express themselves.
+            </p>
+
+            <a href="#collection" class="btn">
+                Shop Collection
+            </a>
+
+        </div>
+
+        <div class="hero-image">
+            <img
+                src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=800&q=80"
+                alt="Poppin Fashion">
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         SECTION 2 - COLLECTION
+    ========================== -->
+    <section class="collection" id="collection">
+
+        <h2 class="section-title">
+            Our Collection
+        </h2>
+
+        <p class="section-subtitle">
+            Fresh styles made to make you pop.
+        </p>
+
+        <div class="products">
+
+            <div class="product-card">
+
+                <img
+                    src="https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?auto=format&fit=crop&w=700&q=80"
+                    alt="Classic Shirt">
+
+                <div class="product-info">
+                    <h3>Classic Shirts</h3>
+                    <p>Simple, stylish and perfect for every day.</p>
+                    <div class="price">$39.99</div>
+                </div>
+
+            </div>
+
+
+            <div class="product-card">
+
+                <img
+                    src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=700&q=80"
+                    alt="Fashion Dress">
+
+                <div class="product-info">
+                    <h3>Signature Dresses</h3>
+                    <p>Elegant looks designed to turn heads.</p>
+                    <div class="price">$59.99</div>
+                </div>
+
+            </div>
+
+
+            <div class="product-card">
+
+                <img
+                    src="https://images.unsplash.com/photo-1551028719-00167b16eac5?auto=format&fit=crop&w=700&q=80"
+                    alt="Fashion Jacket">
+
+                <div class="product-info">
+                    <h3>Street Jackets</h3>
+                    <p>Bold layers for your everyday style.</p>
+                    <div class="price">$79.99</div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         SECTION 3 - ABOUT
+    ========================== -->
+    <section class="about" id="about">
+
+        <div class="about-image">
+
+            <img
+                src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=900&q=80"
+                alt="Poppin Fashion Store">
+
+        </div>
+
+
+        <div class="about-content">
+
+            <h2>
+                Why Choose <span>Poppin?</span>
+            </h2>
+
+            <p>
+                Poppin is more than just a clothing brand. We believe
+                fashion should be fun, comfortable and a reflection
+                of your personality.
+            </p>
+
+            <p>
+                From everyday essentials to statement pieces, every
+                Poppin design is created to help you feel confident
+                wherever you go.
+            </p>
+
+
+            <div class="features">
+
+                <div class="feature">
+                    <h3>✨ Trendy</h3>
+                    <p>Modern styles inspired by today's fashion.</p>
+                </div>
+
+                <div class="feature">
+                    <h3>💎 Quality</h3>
+                    <p>Premium materials made to last.</p>
+                </div>
+
+                <div class="feature">
+                    <h3>❤️ Comfortable</h3>
+                    <p>Fashion that feels as good as it looks.</p>
+                </div>
+
+                <div class="feature">
+                    <h3>🌎 Stylish</h3>
+                    <p>Looks made for every personality.</p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         SECTION 4 - CONTACT
+    ========================== -->
+    <section class="contact" id="contact">
+
+        <h2>
+            Let's Stay Connected
+        </h2>
+
+        <p>
+            Have a question or want to know more about Poppin?
+            We'd love to hear from you.
+        </p>
+
+        <div class="contact-info">
+
+            <div class="contact-item">
+                <span>Email:</span>
+                hello@poppin.com
+            </div>
+
+            <div class="contact-item">
+                <span>Phone:</span>
+                +92 300 1234567
+            </div>
+
+            <div class="contact-item">
+                <span>Instagram:</span>
+                @poppin.fashion
+            </div>
+
+        </div>
+
+        <a href="mailto:hello@poppin.com" class="btn">
+            Contact Us
+        </a>
+
+
+        <footer>
+            <p>
+                © 2026 Poppin. All Rights Reserved.
+            </p>
+        </footer>
+
+    </section>
+
+</body>
+</html>
